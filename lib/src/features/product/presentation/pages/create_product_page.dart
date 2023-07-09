@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../configs/injector/injector_conf.dart';
+import '../../../../core/blocs/theme/theme_bloc.dart';
 import '../../../../core/network/network_checker.dart';
 import '../../../../core/themes/app_color.dart';
 import '../../../../widgets/leading_back_button_widget.dart';
@@ -75,8 +76,10 @@ class CreateProductPage extends StatelessWidget {
             if (state is CreateProductLoadingState) {
               return FloatingActionButton(
                 onPressed: () {},
-                child: const CircularProgressIndicator(
-                  color: AppColor.lightPurple,
+                child: CircularProgressIndicator(
+                  color: context.read<ThemeBloc>().state.isDarkMode
+                      ? AppColor.lightPurple
+                      : AppColor.navy,
                 ),
               );
             }

@@ -42,11 +42,17 @@ class MyApp extends StatelessWidget {
                 current is AuthCheckSignInStatusSuccessState,
             listener: (_, state) {
               if (state is AuthCheckSignInStatusSuccessState) {
-                router.goNamed(AppRoute.home.name, pathParameters: {
-                  "user_id": state.data.userId ?? "",
-                  "email": state.data.email ?? "",
-                  "username": state.data.username ?? "",
-                });
+                final user = state.data;
+                final userMap = {
+                  "user_id": user.userId ?? "",
+                  "email": user.email ?? "",
+                  "username": user.username ?? "",
+                };
+
+                router.goNamed(
+                  AppRoute.home.name,
+                  pathParameters: userMap,
+                );
               }
             },
             child: BlocBuilder<ThemeBloc, ThemeState>(

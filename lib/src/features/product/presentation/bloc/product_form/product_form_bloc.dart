@@ -7,12 +7,12 @@ part 'product_form_state.dart';
 
 class ProductFormBloc extends Bloc<ProductFormEvent, ProductFormState> {
   ProductFormBloc() : super(const ProductFormInitialState()) {
-    on<LoadDataEvent>(_loadData);
+    on<ProductLoadDataEvent>(_loadData);
     on<ProductNameChangedEvent>(_nameChanged);
     on<ProductPriceChangedEvent>(_priceChanged);
   }
 
-  Future _loadData(LoadDataEvent event, Emitter emit) async {
+  Future _loadData(ProductLoadDataEvent event, Emitter emit) async {
     emit(ProductFormDataState(
       inputName: event.name,
       inputPrice: event.price,

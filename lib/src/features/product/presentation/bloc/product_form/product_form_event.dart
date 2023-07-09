@@ -7,10 +7,10 @@ sealed class ProductFormEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class LoadDataEvent extends ProductFormEvent {
+class ProductLoadDataEvent extends ProductFormEvent {
   final String name;
   final String price;
-  const LoadDataEvent(this.name, this.price);
+  const ProductLoadDataEvent(this.name, this.price);
 
   @override
   List<Object> get props => [name, price];

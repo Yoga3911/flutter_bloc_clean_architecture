@@ -56,15 +56,17 @@ class AppRouteConf {
         name: AppRoute.updateProduct.name,
         builder: (_, state) {
           final context = state.extra as BuildContext;
-          final productId = state.pathParameters["product_id"] ?? "";
-          final productName = state.pathParameters["product_name"] ?? "";
-          final productPrice = state.pathParameters["product_price"] ?? "";
+          final params = state.pathParameters;
+
+          final product = UpdateProductParams(
+            productId: params["product_id"] ?? "",
+            name: params["product_name"] ?? "",
+            price: int.tryParse(params["product_price"] ?? "") ?? 0,
+          );
 
           return UpdateProductPage(
             ctx: context,
-            productId: productId,
-            productName: productName,
-            productPrice: productPrice,
+            productParams: product,
           );
         },
       ),

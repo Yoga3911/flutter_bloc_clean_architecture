@@ -9,6 +9,7 @@ import "firebase_options.dart";
 import "src/app.dart";
 import "src/configs/adapter/adapter_conf.dart";
 import "src/configs/injector/injector_conf.dart";
+import "src/core/constants/list_translation_locale.dart";
 import "src/core/utils/observer.dart";
 
 void main() async {
@@ -35,9 +36,9 @@ void main() async {
 
   runApp(
     EasyLocalization(
-      supportedLocales: const [Locale("id", "ID"), Locale("en", "US")],
+      supportedLocales: const [indonesiaLocale, englishLocale],
       path: "assets/translations",
-      startLocale: const Locale("id", "ID"),
+      startLocale: indonesiaLocale,
       child: const MyApp(),
     ),
   );

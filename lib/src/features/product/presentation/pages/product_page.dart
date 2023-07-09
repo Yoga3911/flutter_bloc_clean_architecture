@@ -9,6 +9,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../configs/injector/injector_conf.dart';
 import '../../../../core/blocs/theme/theme_bloc.dart';
 import '../../../../core/blocs/translate/translate_bloc.dart';
+import '../../../../core/constants/list_translation_locale.dart';
 import '../../../../core/network/network_checker.dart';
 import '../../../../routes/app_route_path.dart';
 import '../../../../widgets/dialog_widget.dart';
@@ -76,10 +77,10 @@ class _HomePageState extends State<HomePage> {
   void _changeLanguage(BuildContext context, String languageCode) {
     final trBloc = context.read<TranslateBloc>();
     if (languageCode == "id") {
-      context.setLocale(const Locale('en', 'US'));
+      context.setLocale(englishLocale);
       trBloc.add(TrEnglishEvent());
     } else {
-      context.setLocale(const Locale('id', 'ID'));
+      context.setLocale(indonesiaLocale);
       trBloc.add(TrIndonesiaEvent());
     }
     context.read<ProductBloc>().add(

@@ -12,6 +12,7 @@ import "src/configs/injector/injector_conf.dart";
 import "src/core/constants/list_translation_locale.dart";
 import "src/core/utils/observer.dart";
 
+//Test
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
